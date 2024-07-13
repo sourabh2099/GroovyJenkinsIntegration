@@ -9,12 +9,18 @@ pipeline {
             }
         }
         stage('check if File Exist'){
-        steps{
-            script{
-            def data = pwd();
-            print(data);
+            steps{
+                script{
+                    def data = pwd();
+                    def directoryName = data + '/src/main/resources';
+                    def dir = new File (directoryName)
+                     def fileData = [];
+                     dir.traverse(type: ANY, maxDepth: 2) {
+                         files.add(it)
+                     };
+                     print(files)
+                }
             }
-        }
         }
     }
 }
