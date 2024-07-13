@@ -8,5 +8,13 @@ pipeline {
                 sh 'ls -log'
             }
         }
+        stage('check if File Exist'){
+        steps{
+            script{
+            def data = pwd();
+            print(data);
+            }
+        }
+        }
     }
 }
