@@ -5,6 +5,7 @@ pipeline {
         stage('Read File From Workspace') {
             steps {
                 sh 'pwd'
+                sh 'ls -log'
             }
         }
     }
