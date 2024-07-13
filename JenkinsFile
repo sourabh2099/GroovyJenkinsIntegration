@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Read File From Workspace') {
+            steps {
+                sh 'pwd'
+            }
+        }
+    }
+}
