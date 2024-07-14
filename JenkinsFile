@@ -15,6 +15,11 @@ pipeline {
                     def directoryName = workingDirectory + '/src/main/resources';
                     def op = sh(script: "ls /${directoryName} -log",returnStdout: true).trim()
                     print(op)
+                    def fileNames = op.split("\n")
+                                        fileNames.each { fileName ->
+                                            println("Filename: ${fileName}")
+                                        }
+                    print(fileNames)
                 }
             }
         }
