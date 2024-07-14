@@ -20,7 +20,7 @@ pipeline {
                                             if (fileName && fileName =~ /.*\.json.*/) { // Check if filename is not empty
                                                 files.add(fileName)
                                             }
-
+                    print(files)
                     files.each{ item ->
                         def path = directoryName + "/" + item
                         def fileData = sh(script: "cat /${path}",returnStdout: true).trim()
