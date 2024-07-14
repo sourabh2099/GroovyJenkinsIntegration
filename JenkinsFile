@@ -18,11 +18,15 @@ pipeline {
                     def files = []
                     fileNames.each { fileName ->
                                             if (fileName && fileName =~ /.*\.json.*/) { // Check if filename is not empty
-                                                println("Filename: ${fileName}")
                                                 files.add(fileName)
                                             }
                                         }
-                    print(files)
+                    files.each{ item -> {
+                        def path = directoryName + item
+                        def fileData = sh(script: "cat /${path}",returnStdout: true).trim()
+                        print(fileData)
+                        }
+                    }
                 }
             }
         }
