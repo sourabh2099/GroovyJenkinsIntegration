@@ -11,7 +11,7 @@ pipeline {
         stage('check if File Exist'){
             steps{
                 script{
-                    def workingDirectory = pwd() + + '/src/main/resources';
+                    def workingDirectory = pwd();
                     def directoryName = workingDirectory + '/src/main/resources';
                     def op = sh(script: "ls /${directoryName} -log",returnStdout: true).trim()
                     def fileNames = op.split(/[\n\s]+/)
