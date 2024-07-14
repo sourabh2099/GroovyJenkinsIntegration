@@ -12,10 +12,12 @@ pipeline {
             steps{
                 script{
                     def workingDirectory = pwd() + + '/src/main/resources';
-                    def lsData = sh(script: "ls /${directoryName} -log",returnStdout: true).trim().split(/[\n\s]+/)
-                    lsData.each { data ->
-                                            if (data =~ /.*\.json.*/) { // Check if filename is not empty
-                                                println("Filename: ${data}")
+                    def directoryName = workingDirectory + '/src/main/resources';
+                    def op = sh(script: "ls /${directoryName} -log",returnStdout: true).trim()
+                    def fileNames = op.split(/[\n\s]+/)
+                    fileNames.each { fileName ->
+                                            if (fileName && fileName =~ /.*\.json.*/) { // Check if filename is not empty
+                                                println("Filename: ${fileName}")
                                             }
                                         }
 
