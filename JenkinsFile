@@ -15,7 +15,7 @@ pipeline {
                     def lsData = sh(script: "ls /${directoryName} -log",returnStdout: true).trim().split(/[\n\s]+/)
                     def fileNames = []
                     lsData.each { data ->
-                                            if (data && data =~ /.*\.json.*/) { // Check if filename is not empty
+                                            if (data =~ /.*\.json.*/) { // Check if filename is not empty
                                                 println("Filename: ${data}")
                                                 fileNames.add(data)
                                             }
