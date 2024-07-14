@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Read File From Workspace') {
-            steps {
-                sh 'pwd'
-                sh 'ls -log'
-            }
-        }
         stage('check if File Exist'){
             steps{
                 script{
