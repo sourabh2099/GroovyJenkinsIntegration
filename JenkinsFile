@@ -11,22 +11,15 @@ pipeline {
         stage('check if File Exist'){
             steps{
                 script{
-                    def workingDirectory = pwd();
-                    def directoryName = workingDirectory + '/src/main/resources';
-                    def op = sh(script: "ls /${directoryName} -log",returnStdout: true).trim()
-                    def fileNames = op.split(/[\n\s]+/)
-                    def files = []
+                    def directoryName = pwd() + '/src/main/resources';
+                    def fileNames = sh(script: "ls /${directoryName} -log",returnStdout: true).trim().split(/[\n\s]+/)
                     fileNames.each{ fileName ->
                                             if (fileName && fileName =~ /.*\.json.*/) { // Check if filename is not empty
-                                                files.add(fileName)
+                                                 def path = directoryName + "/" + fileName
+                                                 def fileData = sh(script: "cat /${path}",returnStdout: true).trim()
+                                                 print(fileData)
                                             }
                                    }
-                    print(files)
-                    files.each{ item ->
-                        def path = directoryName + "/" + item
-                        def fileData = sh(script: "cat /${path}",returnStdout: true).trim()
-                        print(fileData)
-                    }
                 }
             }
         }
