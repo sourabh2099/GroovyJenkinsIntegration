@@ -16,10 +16,11 @@ pipeline {
                     def op = sh(script: "ls /${directoryName} -log",returnStdout: true).trim()
                     def fileNames = op.split(/[\n\s]+/)
                     def files = []
-                    fileNames.each { fileName ->
+                    fileNames.each{ fileName ->
                                             if (fileName && fileName =~ /.*\.json.*/) { // Check if filename is not empty
                                                 files.add(fileName)
                                             }
+                                   }
                     print(files)
                     files.each{ item ->
                         def path = directoryName + "/" + item
@@ -29,7 +30,7 @@ pipeline {
                 }
             }
         }
-    }
+
     }
     }
 
