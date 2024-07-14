@@ -15,9 +15,11 @@ pipeline {
                     def directoryName = workingDirectory + '/src/main/resources';
                     def op = sh(script: "ls /${directoryName} -log",returnStdout: true).trim()
                     print(op)
-                    def fileNames = op.split("\n")
-                                        fileNames.each { fileName ->
-                                            println("Filename: ${fileName}")
+                    def fileNames = op.split(/[\n\s]+/)
+                    fileNames.each { fileName ->
+                                            if (fileName) { // Check if filename is not empty
+                                                println("Filename: ${fileName}")
+                                            }
                                         }
                     print(fileNames)
                 }
