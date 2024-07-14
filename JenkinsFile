@@ -15,12 +15,13 @@ pipeline {
                     def directoryName = workingDirectory + '/src/main/resources';
                     def op = sh(script: "ls /${directoryName} -log",returnStdout: true).trim()
                     def fileNames = op.split(/[\n\s]+/)
+                    def files = []
                     fileNames.each { fileName ->
                                             if (fileName && fileName =~ /.*\.json.*/) { // Check if filename is not empty
                                                 println("Filename: ${fileName}")
+                                                files.add(fileName)
                                             }
                                         }
-
                 }
             }
         }
