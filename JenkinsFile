@@ -22,7 +22,7 @@ pipeline {
                                             }
 
                     files.each{ item ->
-                        def path = directoryName + item
+                        def path = directoryName + "/" + item
                         def fileData = sh(script: "cat /${path}",returnStdout: true).trim()
                         print(fileData)
                     }
