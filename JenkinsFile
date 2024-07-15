@@ -7,7 +7,7 @@ pipeline {
             steps{
                 script{
                     //find the testReference file first
-                    def testRefPath = pwd() + '/src/main/resources/testRef';
+                    def testRefPath = pwd() + '/src/main/resources/testRef/testRef.json';
                     // read tje content of the file as a json
                     def testRefContent = sh(script: "cat /${testRefPath}",returnStdout: true).trim()
                     def testRefJson = new JsonSlurper().parseText(testRefContent);
