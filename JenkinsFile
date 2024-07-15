@@ -20,7 +20,7 @@ pipeline {
                         }
                     }
                     echo "Found Mentioned Scenario File Names as ${scenarioFileNames}"
-                    def testSourceFile = pwd() + 'src/main/resources/testData'
+                    def testSourceFile = pwd() + '/src/main/resources/testData'
                     def newTestData = []
                     scenarioFileNames.each{ item ->
                         if(item){
