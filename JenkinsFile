@@ -27,6 +27,7 @@ pipeline {
                         if(item){
                             def path = testSourceFile + "/" + item
                             def fileData = sh(script: "cat /${path}",returnStdout: true).trim()
+                            newTestData.add(fileData)
                         }
                     }
                     echo "Accumulated Data for Each Scenario ${newTestData}"
