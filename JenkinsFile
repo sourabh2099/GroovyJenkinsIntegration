@@ -10,7 +10,9 @@ pipeline {
                     def testRefPath = pwd() + '/src/main/resources/testRef/testRef.json';
                     // read the content of the file as a json
                     def testRefContent = sh(script: "cat /${testRefPath}",returnStdout: true).trim()
+                    print(testRefContent)
                     def testRefJson = new JsonSlurper().parseText(testRefContent)
+                    print(testRefJson)
                     def scenarioFileNames = []
                     for(int i = 0; i < testRefJson.customTests.size() ; i++){
                         if(!testRefContent.customTests.skipExecution){
