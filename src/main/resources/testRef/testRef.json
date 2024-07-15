@@ -2,12 +2,12 @@
   "customTests": [
     {
       "testCaseId": "",
-      "scenarioId": "",
+      "fileName": "abc.jso",
       "skipExecution": false
     },
     {
       "testCaseId": "",
-      "scenarioId": "",
+      "fileName": "def.json",
       "skipExecution": false
     }
   ]
