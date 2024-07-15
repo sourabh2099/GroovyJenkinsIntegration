@@ -12,9 +12,9 @@ pipeline {
                     def testRefContent = sh(script: "cat /${testRefPath}",returnStdout: true).trim()
                     def testRefJson = new JsonSlurper().parseText(testRefContent)
                     def scenarioFileNames = []
-                    for(int i = 0; i < testRefContent.customTests.size() ; i++){
+                    for(int i = 0; i < testRefJson.customTests.size() ; i++){
                         if(!testRefContent.customTests.skipExecution){
-                            scenarioFileNames.add(testRefContent.customTests[i].fileName)
+                            scenarioFileNames.add(testRefJson.customTests[i].fileName)
                         }
                     }
                     echo "Found Mentioned Scenario File Names as ${scenarioFileNames}"
