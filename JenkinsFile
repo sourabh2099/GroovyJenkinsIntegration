@@ -20,6 +20,7 @@ pipeline {
                         }
                     }
                     echo "Found Mentioned Scenario File Names as ${scenarioFileNames}"
+                    testRefJson = null
                     def testSourceFile = pwd() + '/src/main/resources/testData'
                     def newTestData = []
                     scenarioFileNames.each{ item ->
