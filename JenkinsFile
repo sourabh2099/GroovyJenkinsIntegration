@@ -15,7 +15,7 @@ pipeline {
                     print(testRefJson)
                     def scenarioFileNames = []
                     for(int i = 0; i < testRefJson.customTests.size() ; i++){
-                        if(!testRefContent.customTests.skipExecution){
+                        if(!testRefJson.customTests.skipExecution){
                             scenarioFileNames.add(testRefJson.customTests[i].fileName)
                         }
                     }
