@@ -2,7 +2,7 @@
   "customTests": [
     {
       "testCaseId": "",
-      "fileName": "abc.jso",
+      "fileName": "abc.json",
       "skipExecution": false
     },
     {
